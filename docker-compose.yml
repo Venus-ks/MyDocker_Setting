@@ -9,20 +9,14 @@ services:
             - 3000:3000
             - 8070:8070
             - 8043:8043
+            - 8074:8074
+            - 9090:9090
         volumes:
             - ./app:/var/www/html #프로젝트 경로
             - ./httpd/httpd.conf:/usr/local/apache2/conf/httpd.conf #apache2 설정파일
             - ./httpd/httpd-vhosts.conf:/usr/local/apache2/conf/extra/httpd-vhosts.conf
         depends_on:
             - php
-    # nginx:
-    #     image: nginx
-    #     container_name: nginx`
-    #     ports:
-    #         - 80:80
-    #     volumes:
-    #         - ./php:/var/www/html #프로젝트 경로
-    #         - ./nginx/default.conf:/etc/nginx/conf.d/default.conf #apache2 설정파일
     php:
         build: ./app
         container_name: php

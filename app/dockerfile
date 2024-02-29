@@ -1,5 +1,6 @@
 FROM php:7.3-fpm
-RUN cp /usr/local/etc/php/php.ini-production /usr/local/etc/php/php.ini
+
+COPY ./ini/php.ini /usr/local/etc/php/php.ini
 RUN apt update && \
     apt install -y \
         curl \
